@@ -4,7 +4,10 @@
   "version": "1.0",
   "description": "Tracks the time you spend on Websites.",
   "background": {
-    "scripts": ["background.js"]
+    "scripts": [
+    "background.js",
+    "localstoragedb.min.js"
+    ]
   },
   "permissions": ["tabs"],
 
