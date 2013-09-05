@@ -2,8 +2,13 @@ var currentSite = null;
 var currentTabId = null;
 var startTime = null;
 var siteRegexp = /^(\w+:\/\/[^\/]+).*$/;
-var updateCounterInterval = 1000 * 60;  // 1 minute.
 var lastActivitySeconds = 0;
+
+
+chrome.browserAction.onClicked.addListener(function(tab) {
+       var newURL = chrome.extension.getURL('statistics.html');
+    chrome.tabs.create({ url: newURL });
+      });
 
 chrome.tabs.onSelectionChanged.addListener(
      function(tabId, selectionInfo) {

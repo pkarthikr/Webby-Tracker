@@ -5,8 +5,7 @@
   "description": "Tracks the time you spend on Websites.",
   "background": {
     "scripts": [
-    "background.js",
-    "localstoragedb.min.js"
+    "background.js"
     ]
   },
   "permissions": ["tabs"],

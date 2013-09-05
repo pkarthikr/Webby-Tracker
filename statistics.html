@@ -3,6 +3,21 @@
 	<title>Webby Tracker</title>
 </head>
 <body>
-<p>This will show 
+<script>
+ var sites = JSON.parse(localStorage.sites);
+
+   /* Sort sites by time spent */
+   var sortedSites = new Array();
+   var totalTime = 0;
+   for (site in sites) {
+     sortedSites.push([site, sites[site]]);
+     totalTime += sites[site];
+     console.log(totalTime);
+   }
+   sortedSites.sort(function(a, b) {
+     return b[1] - a[1];
+   });
+
+</script>
 </body>
 </html>
