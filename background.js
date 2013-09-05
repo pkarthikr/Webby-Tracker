@@ -89,6 +89,7 @@ function updateCounter() {
           currentSite = site;
           console.log("The value is"+site);
 
+
           startTime = now;
           console.log("The Current Time is "+startTime);
         });
@@ -96,7 +97,20 @@ function updateCounter() {
   }
 
   function updateTime(site, seconds){
-  	   lib.insert("sites", {site: site, timeinsecs:seconds});
-  	   lib.commit();
+     if (!localStorage.sites) {
+        localStorage.sites = JSON.stringify({});
+      }
+
+       var sites = JSON.parse(localStorage.sites);
+      if (!sites[site]) {
+        sites[site] = 0;
+      }
+      sites[site] = sites[site] + seconds;
+      localStorage.sites = JSON.stringify(sites);
+  	 
+
+  	   
   }
+
+  
 
