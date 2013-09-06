@@ -1,23 +1,18 @@
 <html>
 <head>
 	<title>Webby Tracker</title>
+ 
+  
+  <style>
+  canvas {
+
+  }
+  </style>
 </head>
-<body>
-<script>
- var sites = JSON.parse(localStorage.sites);
+  <body>
+    <!-- <canvas id="canvas" height="400" width="400"></canvas> -->
+<script src="Chart.min.js"></script>
+  <script src="data.js"></script>
+  </body>
 
-   /* Sort sites by time spent */
-   var sortedSites = new Array();
-   var totalTime = 0;
-   for (site in sites) {
-     sortedSites.push([site, sites[site]]);
-     totalTime += sites[site];
-     console.log(totalTime);
-   }
-   sortedSites.sort(function(a, b) {
-     return b[1] - a[1];
-   });
-
-</script>
-</body>
 </html>

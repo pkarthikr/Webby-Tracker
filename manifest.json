@@ -5,11 +5,13 @@
   "description": "Tracks the time you spend on Websites.",
   "background": {
     "scripts": [
-    "background.js"
+    "background.js",
+    "data.js",
+    "Chart.min.js"
     ]
   },
   "permissions": ["tabs"],
-
+"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "browser_action": {
     "default_title": "",
     "default_icon": "icon.png"
