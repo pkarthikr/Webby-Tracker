@@ -22,6 +22,7 @@ var totalTime  = 0;
 
    for (site in sites) {
      
+
      document.write(site);
      document.write(" - ");
     
@@ -38,7 +39,7 @@ var totalTime  = 0;
      document.write(seconds);
 
 
-     document.write(" -   ");
+     document.write(" -  ");
 
      var time = sites[site];
      var total = totalTime;
@@ -47,9 +48,7 @@ var totalTime  = 0;
      document.write(percentage);
 
      document.write("<br>");
-
-     
-
+  
 
    }
 
