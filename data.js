@@ -46,9 +46,15 @@ var totalTime  = 0;
      var percentage = time/total * 100;
 
      document.write(percentage);
+     document.write('<div class="progress progress-striped">');
+     document.write('<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: ');
+     document.write(percentage);
+     document.write('%">');
 
-     document.write("<br>");
-  
+
+     document.write('</div>');
+
+   document.write('</div>');
 
    }
 
