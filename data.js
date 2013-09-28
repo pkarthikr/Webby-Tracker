@@ -1,54 +1,77 @@
  var sites = JSON.parse(localStorage.sites);
-
+var totalTime  = 0;
    /* Sort sites by time spent */
    var sortedSites = new Array();
    var totalTime = 0;
+
+   for (site in sites){
+
+      totalTime += sites[site];
+   }
+
+   var totalTimeinHHMMSS = secondsToTime(totalTime);
+      document.write("Total Time Tracked");
+      document.write("-");
+      document.write(totalTimeinHHMMSS.h);
+      document.write(":");
+      document.write(totalTimeinHHMMSS.m);
+      document.write(":");
+      document.write(totalTimeinHHMMSS.s);
+      document.write("<br>");
+
+
    for (site in sites) {
-     sortedSites.push([site, sites[site]]);
-     totalTime += sites[site];
+     
      document.write(site);
      document.write(" - ");
-     document.write(sites[site]);
+    
+     var time = secondsToTime(sites[site]);
+     var hours = time.h;
+     var minutes = time.m;
+     var seconds = time.s;
+
+
+     document.write(hours);
+     document.write(":");
+     document.write(minutes);
+     document.write(":");
+     document.write(seconds);
+
+
+     document.write(" -   ");
+
+     var time = sites[site];
+     var total = totalTime;
+     var percentage = time/total * 100;
+
+     document.write(percentage);
+
      document.write("<br>");
-   }
-   sortedSites.sort(function(a, b) {
-     return b[1] - a[1];
-   });
 
-   /* Show only the top 15 sites by default */
-   var max = 15;
-   if (document.location.href.indexOf("show=all") != -1) {
-     max = sortedSites.length;
+     
+
+
    }
 
 
-// var chartData = [
-//       {
-//         value : Math.random(),
-//         color: "#D97041"
-//       },
-//       {
-//         value : Math.random(),
-//         color: "#C7604C"
-//       },
-//       {
-//         value : Math.random(),
-//         color: "#21323D"
-//       },
-//       {
-//         value : Math.random(),
-//         color: "#9D9B7F"
-//       },
-//       {
-//         value : Math.random(),
-//         color: "#7D4F6D"
-//       },
-//       {
-//         value : Math.random(),
-//         color: "#584A5E"
-//       }
-//     ];
 
-//     console.log(chartData);
+   
 
-//   var myPolarArea = new Chart(document.getElementById("canvas").getContext("2d")).PolarArea(chartData);
+
+function secondsToTime(secs)
+{
+    var hours = Math.floor(secs / (60 * 60));
+
+    var divisor_for_minutes = secs % (60 * 60);
+    var minutes = Math.floor(divisor_for_minutes / 60);
+
+    var divisor_for_seconds = divisor_for_minutes % 60;
+    var seconds = Math.ceil(divisor_for_seconds);
+
+    var obj = {
+        "h": hours,
+        "m": minutes,
+        "s": seconds
+    };
+    return obj;
+}
