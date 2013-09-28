@@ -6,8 +6,7 @@
   "background": {
     "scripts": [
     "background.js",
-    "data.js",
-    "Chart.min.js"
+    "data.js"
     ]
   },
   "permissions": ["tabs"],
