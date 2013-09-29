@@ -7,61 +7,90 @@ var totalTime  = 0;
    for (site in sites){
 
       totalTime += sites[site];
+
    }
 
+ 
+
+
+
    var totalTimeinHHMMSS = secondsToTime(totalTime);
-      document.write("Total Time Tracked");
-      document.write("-");
+      document.write('<div class="container">');
+
+  document.write('<div class="panel panel-default">');
+  document.write('<div class="panel-heading">Webby Tracker</div>');
+  document.write('<div class="panel-body">');
+  
+   document.write('<p>');
+      document.write("Total Time Tracked [HH: MM: SS]");
+      document.write(" : ");
       document.write(totalTimeinHHMMSS.h);
       document.write(":");
       document.write(totalTimeinHHMMSS.m);
       document.write(":");
       document.write(totalTimeinHHMMSS.s);
       document.write("<br>");
+      document.write('</p>');
+document.write('</div>');
+       document.write('<table class="table">');
+      document.write('<th>ID</th>');
+       document.write('<th>Site</th>');
+        document.write('<th>Time Spent [HH: MM: SS]</th>');
+         document.write('<th>Percentage</th>');
 
+         
+      var i = 1;
 
    for (site in sites) {
      
 
-     document.write(site);
-     document.write(" - ");
-    
      var time = secondsToTime(sites[site]);
      var hours = time.h;
      var minutes = time.m;
      var seconds = time.s;
 
+      var timeinsecs = sites[site];
+       var total = totalTime;
+      var percentage = timeinsecs/total * 100;
 
+      percentage = Math.floor(percentage);
+
+      if(percentage > 2) {
+
+
+    document.write('<tr>');
+    document.write('<td>');
+      document.write(i);
+      document.write('</td>');
+       document.write('<td>');
+     document.write(site);
+      document.write('</td>');
+      document.write('<td>');
      document.write(hours);
      document.write(":");
      document.write(minutes);
      document.write(":");
      document.write(seconds);
-
-
-     document.write(" -  ");
-
-     var time = sites[site];
-     var total = totalTime;
-     var percentage = time/total * 100;
-
+     document.write('</td>');
+     document.write('<td>');
      document.write(percentage);
-     document.write('<div class="progress progress-striped">');
-     document.write('<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: ');
-     document.write(percentage);
-     document.write('%">');
+     document.write('</td>');
+     document.write('</tr>');
 
+   document.write('</tr>');
 
-     document.write('</div>');
+   i++;
 
-   document.write('</div>');
-
+}
    }
+document.write('</table>');
 
 
-
-   
-
+    
+      document.write('</div>');
+document.write('<a href="http://thenounproject.com/noun/clock/#icon-No3020" target="_blank">Clock</a> designed by <a href="http://thenounproject.com/NicholasBurroughs" target="_blank">Nicholas Burroughs</a> from The Noun Project.');
+document.write('<br>');
+document.write('Made with a lot of love using <a href="http://getbootstrap.com/" target="_blank">Bootstrap.</a>');
 
 function secondsToTime(secs)
 {
