@@ -2,8 +2,7 @@
 var totalTime  = 0;
    /* Sort sites by time spent */
    var sortedSites = new Array();
-   var totalTime = 0;
-
+   
    for (site in sites){
 
       totalTime += sites[site];
@@ -11,7 +10,6 @@ var totalTime  = 0;
    }
 
  
-
 
 
    var totalTimeinHHMMSS = secondsToTime(totalTime);

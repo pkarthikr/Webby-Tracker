@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Webby Tracker",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Tracks the time you spend on Websites.",
   "background": {
     "scripts": [
