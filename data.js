@@ -82,13 +82,8 @@ document.write('</div>');
 }
    }
 document.write('</table>');
-
-
     
       document.write('</div>');
-document.write('<a href="http://thenounproject.com/noun/clock/#icon-No3020" target="_blank">Clock</a> designed by <a href="http://thenounproject.com/NicholasBurroughs" target="_blank">Nicholas Burroughs</a> from The Noun Project.');
-document.write('<br>');
-document.write('Made with a lot of love using <a href="http://getbootstrap.com/" target="_blank">Bootstrap.</a>');
 
 function secondsToTime(secs)
 {
