@@ -38,7 +38,7 @@ document.write('</div>');
 
          
       var i = 1;
-
+      var ranked = [];
    for (site in sites) {
      
 
@@ -53,34 +53,49 @@ document.write('</div>');
 
       percentage = Math.floor(percentage);
 
-      if(percentage > 2) {
+      if(percentage > 2){
+          ranked.push({
+          site: site,
+          hours: hours,
+          minutes: minutes,
+          seconds: seconds,
+          percentage: percentage
+        });
+      }
+   }
 
-
-    document.write('<tr>');
+   //sort by percentage
+   ranked.sort(function(a,b){
+    if (a.percentage > b.percentage)
+      return -1;
+    if (a.percentage < b.percentage)
+      return 1;
+    return 0;
+   });
+console.log(ranked)
+   for (var i = 0; i < ranked.length; i++) {
+     document.write('<tr>');
     document.write('<td>');
-      document.write(i);
+      document.write(i+1);
       document.write('</td>');
        document.write('<td>');
-     document.write(site);
+     document.write(ranked[i].site);
       document.write('</td>');
       document.write('<td>');
-     document.write(hours);
+     document.write(ranked[i].hours);
      document.write(":");
-     document.write(minutes);
+     document.write(ranked[i].minutes);
      document.write(":");
-     document.write(seconds);
+     document.write(ranked[i].seconds);
      document.write('</td>');
      document.write('<td>');
-     document.write(percentage);
+     document.write(ranked[i].percentage);
      document.write('</td>');
      document.write('</tr>');
 
    document.write('</tr>');
+   };
 
-   i++;
-
-}
-   }
 document.write('</table>');
     
       document.write('</div>');
